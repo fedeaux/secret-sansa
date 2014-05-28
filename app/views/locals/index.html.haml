@@ -1,0 +1,33 @@
+%h1 Listing locals
+
+%table
+  %tr
+    %th Name
+    %th Category
+    %th Address
+    %th City
+    %th State
+    %th Cep
+    %th Cnpj
+    %th Company name
+    %th
+    %th
+    %th
+
+  - @locals.each do |local|
+    %tr
+      %td= local.name
+      %td= local.category
+      %td= local.address
+      %td= local.city
+      %td= local.state
+      %td= local.cep
+      %td= local.cnpj
+      %td= local.company_name
+      %td= link_to 'Show', local
+      %td= link_to 'Edit', edit_local_path(local)
+      %td= link_to 'Destroy', local, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Local', new_local_path

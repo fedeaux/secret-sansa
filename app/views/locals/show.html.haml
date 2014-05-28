@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @local.name
+%p
+  %b Category:
+  = @local.category
+%p
+  %b Address:
+  = @local.address
+%p
+  %b City:
+  = @local.city
+%p
+  %b State:
+  = @local.state
+%p
+  %b Cep:
+  = @local.cep
+%p
+  %b Cnpj:
+  = @local.cnpj
+%p
+  %b Company name:
+  = @local.company_name
+
+= link_to 'Edit', edit_local_path(@local)
+\|
+= link_to 'Back', locals_path
