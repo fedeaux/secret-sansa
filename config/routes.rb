@@ -1,4 +1,10 @@
 Interno::Application.routes.draw do
+  resources :users
+
+  resources :leads
+
+  get 'locals/hierarchy_picker/(:root_local_id)', to: 'locals#hierarchy_picker', as: 'local_hierarchy_picker'
+  get 'locals/hierarchy_view/(:root_local_id)', to: 'locals#hierarchy_view', as: 'local_hierarchy_view'
   resources :locals
 
   resources :clients

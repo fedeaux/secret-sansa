@@ -1,0 +1,28 @@
+= form_for @lead do |f|
+  - if @lead.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@lead.errors.count, "error")} prohibited this lead from being saved:"
+      %ul
+        - @lead.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :subject
+    = f.text_field :subject
+  .field
+    = f.label :last_event_on
+    = f.datetime_select :last_event_on
+  .field
+    = f.label :status
+    = f.number_field :status
+  .field
+    = f.label :has_pendencies
+    = f.check_box :has_pendencies
+  .field
+    = f.label :has_file_pendencies
+    = f.check_box :has_file_pendencies
+  .field
+    = f.label :disabled
+    = f.check_box :disabled
+  .actions
+    = f.submit 'Save'

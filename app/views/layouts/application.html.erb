@@ -1,14 +1,81 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Interno</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Interno</title>
+    <%=
+    if mobile_device?
+      stylesheet_link_tag "mobile", media: "all", "data-turbolinks-track" => true
+    else
+      stylesheet_link_tag "desktop", media: "all", "data-turbolinks-track" => true
+    end
+    %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
 
-<%= yield %>
 
-</body>
+  <body>
+    <div id="wrapper">
+      <div id="messages">
+        <% flash.each do |key, value| %>
+        <div class="message message-<%= key %>"><%= value %></div>
+        <% end %>
+      </div>
+      <div id="nav">
+        <div id="main-nav">
+          <div class="nav-item">
+            &nbsp;
+          </div>
+          <div class="nav-item">
+            <%= link_to "Clientes", clients_path %>
+
+            <div class="sub-nav">
+              <div class="sub-nav-item">
+                <%= link_to "Criar novo", new_client_path %>
+              </div>
+            </div>
+          </div>
+          <div class="nav-item">
+            <a href=""> Locais </a>
+
+            <div class="sub-nav">
+              <div class="sub-nav-item">
+                <%= link_to "Criar novo", new_local_path %>
+              </div>
+              <div class="sub-nav-item">
+                <%= link_to "Arvore", local_hierarchy_view_path %>
+              </div>
+              <div class="sub-nav-item">
+                <%= link_to "Lista", new_local_path %>
+              </div>
+            </div>
+          </div>
+          <div class="nav-item">
+            <a href=""> Equipamentos </a>
+          </div>
+          <div class="nav-item">
+            <%= link_to "Histórico", new_lead_path %>
+          </div>
+          <div class="nav-item">
+            <a href=""> E-Mails </a>
+          </div>
+          <div class="nav-item">
+            <a href=""> Admin </a>
+          </div>
+        </div>
+        <div id="logout">
+
+        </div>
+        <div class="clear"></div>
+        <div id="search-wrapper">
+          <input id="global-search" />
+        </div>
+      </div>
+
+      <div id="content">
+        <%= yield %>
+      </div>
+    </div>
+
+  </body>
 </html>

@@ -1,0 +1,29 @@
+%h1 Listing leads
+
+%table
+  %tr
+    %th Subject
+    %th Last event on
+    %th Status
+    %th Has pendencies
+    %th Has file pendencies
+    %th Disabled
+    %th
+    %th
+    %th
+
+  - @leads.each do |lead|
+    %tr
+      %td= lead.subject
+      %td= lead.last_event_on
+      %td= lead.status
+      %td= lead.has_pendencies
+      %td= lead.has_file_pendencies
+      %td= lead.disabled
+      %td= link_to 'Show', lead
+      %td= link_to 'Edit', edit_lead_path(lead)
+      %td= link_to 'Destroy', lead, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Lead', new_lead_path

@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Subject:
+  = @lead.subject
+%p
+  %b Last event on:
+  = @lead.last_event_on
+%p
+  %b Status:
+  = @lead.status
+%p
+  %b Has pendencies:
+  = @lead.has_pendencies
+%p
+  %b Has file pendencies:
+  = @lead.has_file_pendencies
+%p
+  %b Disabled:
+  = @lead.disabled
+
+= link_to 'Edit', edit_lead_path(@lead)
+\|
+= link_to 'Back', leads_path

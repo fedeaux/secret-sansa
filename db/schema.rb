@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528221107) do
+ActiveRecord::Schema.define(version: 20140529134405) do
 
   create_table "clients", force: true do |t|
     t.string   "name"
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(version: 20140528221107) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email"
+  end
+
+  create_table "leads", force: true do |t|
+    t.string   "subject"
+    t.datetime "last_event_on"
+    t.integer  "status"
+    t.boolean  "has_pendencies"
+    t.boolean  "has_file_pendencies"
+    t.boolean  "disabled"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "locals", force: true do |t|
@@ -35,6 +46,16 @@ ActiveRecord::Schema.define(version: 20140528221107) do
     t.datetime "updated_at"
     t.string   "ancestry"
     t.text     "observations"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "password"
+    t.string   "email"
+    t.string   "initials"
+    t.boolean  "disabled"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

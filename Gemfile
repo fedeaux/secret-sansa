@@ -3,8 +3,11 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
+gem 'bourbon'
 gem 'neat'
 gem 'haml-rails'
+
+gem 'devise'
 
 # Use mysql as the database for Active Record
 group :development do

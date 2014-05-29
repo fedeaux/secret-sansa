@@ -1,3 +1,39 @@
 // Place all the styles related to the Locals controller here.
 // They will automatically be included in application.css.
 // You can use Sass here: http://sass-lang.com/
+
+.hierarchy_view
+  ul ul
+    display: none
+    margin-left: 1em
+
+  .hierarchy_view_anchor
+    position: relative
+    height: 1.3em
+    line-height: 1.3em
+    vertical-align: middle
+
+    .actions
+      position: absolute
+      top: 0.15em
+      right: 4px
+      display: none
+
+    &:hover
+      background-color: $theme-color
+      color: white
+
+      .actions
+        display: inline
+
+    &:before
+      font-size: small
+      content: "\25B6"
+
+    &.hierarchy_view_no_children:before
+      font-size: small
+      content: "\a0\a0\a0"
+
+  .hierarchy_view_open
+    &:before
+      content: "\25BC"
