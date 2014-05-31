@@ -6,14 +6,22 @@
         - @client.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :observations
-    = f.text_area :observations
-  .actions
-    = f.submit 'Save'
+  %table
+    %tr.field
+      %td= f.label :name
+      %td= f.text_field :name
+
+    %tr.field
+      %td= f.label :email
+      %td= f.text_field :email, :class => "validate[required,custom[email]]"
+
+    %tr.field
+      %td= f.label :title
+      %td= f.text_field :title
+
+    %tr.field
+      %td= f.label :observations
+      %td= f.text_area :observations
+
+    %tr
+      %td.actions{:colspan => 2}= f.submit 'Salvar'

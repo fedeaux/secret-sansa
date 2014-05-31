@@ -7,19 +7,8 @@
           %li= msg
 
   .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :password
-    = f.text_field :password
-  .field
     = f.label :email
     = f.text_field :email
-  .field
-    = f.label :initials
-    = f.text_field :initials
-  .field
-    = f.label :disabled
-    = f.check_box :disabled
+  .explain Um e-mail de confirmação será enviado para este usuário
   .actions
-    = f.submit 'Save'
+    = f.submit 'Confirmar'

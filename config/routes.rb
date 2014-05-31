@@ -1,13 +1,13 @@
 Interno::Application.routes.draw do
   resources :users
-
+  resources :clients
   resources :leads
 
   get 'locals/hierarchy_picker/(:root_local_id)', to: 'locals#hierarchy_picker', as: 'local_hierarchy_picker'
   get 'locals/hierarchy_view/(:root_local_id)', to: 'locals#hierarchy_view', as: 'local_hierarchy_view'
   resources :locals
 
-  resources :clients
+  devise_for :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

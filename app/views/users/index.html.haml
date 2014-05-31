@@ -1,27 +1,9 @@
-%h1 Listing users
+%h1 Usuários
 
-%table
-  %tr
-    %th Name
-    %th Password
-    %th Email
-    %th Initials
-    %th Disabled
-    %th
-    %th
-    %th
+.block.collumns_8
+  %h2 Usuários
+  = render 'all'
 
-  - @users.each do |user|
-    %tr
-      %td= user.name
-      %td= user.password
-      %td= user.email
-      %td= user.initials
-      %td= user.disabled
-      %td= link_to 'Show', user
-      %td= link_to 'Edit', edit_user_path(user)
-      %td= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New User', new_user_path
+.block.collumns_4.omega
+  %h2 Novo usuário
+  = render 'form'
