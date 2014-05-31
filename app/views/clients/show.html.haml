@@ -1,8 +1,15 @@
 .actions
   = link_to 'Editar', edit_client_path(@client)
   \|
+  = link_to "Excluir", @client, :method => :delete, :confirm => "Esta ação não pode ser desfeita. Deseja continuar?"
+  \|
   Enviar E-Mail
 
-%h1= @client.title+' '+@client.name
-%p= @client.email
-%p= @client.observations
+%h1.entity-view
+  = best_in_place @client, :title, :type => :input
+  = best_in_place @client, :name, :type => :input, :inner_class => "validate[required]"
+
+%p.email= best_in_place @client, :email, :type => :input
+
+%h3 Observações
+.observations= best_in_place @client, :observations, :type => :textarea

@@ -12,6 +12,21 @@ h2
   font-size: 1.5em
   margin-bottom: .5em
 
+  &.entity-view
+    margin-bottom: 0
+
+.entity-list
+  width: 100%
+
+  td
+    padding: .5em 1em
+
+  tr:nth-child(even)
+    background-color: $theme-color-text
+
+.apple_pagination
+  margin-top: 1em
+
 .explain
   font-size: .8em
   font-style: italic
@@ -91,3 +106,15 @@ form
 
   .icon-view
     background-image: url(/assets/icons/view-white.png)
+
+.email
+  font-style: italic
+
+  &:before
+    content: "<"
+
+  &:after
+    content: ">"
+
+.actions
+  margin-bottom: 1em

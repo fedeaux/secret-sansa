@@ -1,8 +1,10 @@
 #messages
   position: fixed
-  width: 40%
+  width: 100%
   margin: auto
   text-align: center
+  bottom: 1em
+  left: 0
 
   .message
     +border-radius(12px)
@@ -17,6 +19,13 @@
     width: 100%
 
   .message-error
-    color: red
-    border-color: red
-    background-color: lighten(red, 46%)
+    +color-box(red)
+
+  .message-warning
+    +color-box(orange)
+
+  .message-notice
+    +color-box(blue)
+
+  .message-success
+    +color-box(green, 65%)

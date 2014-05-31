@@ -12,6 +12,7 @@
 
     %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag "validationEngine.jquery", media: "all", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
   </head>
 
@@ -34,6 +35,7 @@
             <div class="sub-nav">
               <div class="sub-nav-item">
                 <%= link_to "Criar novo", new_client_path %>
+                <%= link_to "Ver todos", clients_path %>
               </div>
             </div>
           </div>

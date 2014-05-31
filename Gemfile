@@ -41,6 +41,12 @@ gem 'jbuilder', '~> 1.2'
 # Adds hierarchy capabilities to a model. https://github.com/stefankroes/ancestry
 gem 'ancestry'
 
+# Awesome Inline Edition
+gem 'best_in_place', github: 'aaronchi/best_in_place'
+
+# Pagination
+gem 'will_paginate', '~> 3.0.5'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

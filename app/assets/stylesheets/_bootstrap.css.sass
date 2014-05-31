@@ -8,4 +8,11 @@ $theme-color-text: lighten($theme-color, 80%)
 $theme-color-lightest: lighten($theme-color-text, 2%)
 $max-width: 100%
 
+@mixin color-box($color, $bg-lighten: 40%)
+  color: $color
+  border-color: $color
+  background-color: lighten($color, $bg-lighten)
+
 @import "general"
+@import "messages"
+@import "pagination"
