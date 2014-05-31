@@ -28,7 +28,7 @@ class LocalsController < ApplicationController
 
     respond_to do |format|
       if @local.save
-        format.html { redirect_to @local, notice: 'Local was successfully created.' }
+        format.html { redirect_to @local, success: 'Local foi criado com sucesso!' }
         format.json { render action: 'show', status: :created, location: @local }
       else
         format.html { render action: 'new' }

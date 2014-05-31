@@ -1,17 +1,8 @@
 %table
   %tr
-    %th Name
-    %th Email
-    %th Initials
-    %th Disabled
-
   - @users.each do |user|
     %tr
       %td
-        .name= user.name
+        .name= user.name+', '+user.initials
         .email= user.email
-        .initials= user.initials
       %td= user.disabled
-      %td= link_to 'Show', user
-      %td= link_to 'Edit', edit_user_path(user)
-      %td= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
