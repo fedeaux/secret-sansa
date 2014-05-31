@@ -39,6 +39,16 @@ pt-br:
         observations: Observações
         role: Papel
 
+      local:
+        name: Nome
+        category: Categoria
+        city: Cidade
+        state: Estado
+        cep: CEP
+        cnpj: CNPJ
+        company_name: Razão Social
+        observations: Observações
+
   activerecord:
     errors:
       models:

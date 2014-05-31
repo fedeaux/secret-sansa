@@ -1,30 +1,20 @@
-%p#notice= notice
+.actions
+  = link_to "Excluir", @local, :method => :delete, :confirm => "Esta ação não pode ser desfeita. Deseja continuar?"
+
+%h1.entity-view
+  = best_in_place @local, :name, :type => :input
+
+%p= best_in_place @local, :category, :type => :input
+%p= best_in_place @local, :address, :type => :input
 
 %p
-  %b Name:
-  = @local.name
-%p
-  %b Category:
-  = @local.category
-%p
-  %b Address:
-  = @local.address
-%p
-  %b City:
-  = @local.city
-%p
-  %b State:
-  = @local.state
-%p
-  %b Cep:
-  = @local.cep
-%p
-  %b Cnpj:
-  = @local.cnpj
-%p
-  %b Company name:
-  = @local.company_name
+  = best_in_place @local, :city, :type => :input
+  ,
+  = best_in_place @local, :state, :type => :select
+  \ -
+  = best_in_place @local, :cep, :type => :input
 
-= link_to 'Edit', edit_local_path(@local)
-\|
-= link_to 'Back', locals_path
+%p
+  = best_in_place @local, :company_name, :type => :input
+  ,
+  = best_in_place @local, :cnpj, :type => :input

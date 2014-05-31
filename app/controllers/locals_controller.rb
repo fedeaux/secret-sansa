@@ -4,7 +4,7 @@ class LocalsController < ApplicationController
   # GET /locals
   # GET /locals.json
   def index
-    @locals = Local.all
+    @locals = Local.paginate(:page => params[:page])
   end
 
   # GET /locals/1

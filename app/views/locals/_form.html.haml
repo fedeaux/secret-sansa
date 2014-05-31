@@ -1,34 +1,47 @@
 = form_for @local do |f|
   - if @local.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@local.errors.count, "error")} prohibited this local from being saved:"
+      %h2= "#{pluralize(@local.errors.count, "error")} erros:"
       %ul
         - @local.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :category
-    = f.text_field :category
-  .field
-    = f.label :address
-    = f.text_field :address
-  .field
-    = f.label :city
-    = f.text_field :city
-  .field
-    = f.label :state
-    = f.text_field :state
-  .field
-    = f.label :cep
-    = f.text_field :cep
-  .field
-    = f.label :cnpj
-    = f.text_field :cnpj
-  .field
-    = f.label :company_name
-    = f.text_field :company_name
-  .actions
-    = f.submit 'Save'
+  %table
+    %tr.field
+      %td= f.label :name
+      %td= f.text_field :name, :class => "validate[required]"
+
+    %tr.field
+      %td= f.label :category
+      %td= f.text_field :category
+
+    %tr.field
+      %td= f.label :address
+      %td= f.text_field :address
+
+    %tr.field
+      %td= f.label :cep
+      %td= f.text_field :cep
+
+    %tr.field
+      %td= f.label :city
+      %td= f.text_field :city
+
+    %tr.field
+      %td= f.label :state
+      %td= f.select :state, [ 'AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'Di', 'Es', 'GO', 'MA', 'Ma', 'MT', 'MS', 'MG', 'PR', 'PB', 'PA', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SE', 'SP', 'TO' ]
+
+    %tr.field
+      %td= f.label :cnpj
+      %td= f.text_field :cnpj
+
+    %tr.field
+      %td= f.label :company_name
+      %td= f.text_field :company_name
+
+    %tr.field
+      %td= f.label :observations
+      %td= f.text_area :observations
+
+    %tr
+      %td.actions{:colspan => 2}= f.submit 'Salvar'
