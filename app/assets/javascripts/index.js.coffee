@@ -8,3 +8,6 @@ $ () ->
 
   if loading_more.length > 0
     new InfiniteLoading loading_more
+
+  if $('#lead_entry_text').length > 0
+    LeadManager.setup()

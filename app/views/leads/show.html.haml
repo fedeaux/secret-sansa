@@ -18,6 +18,7 @@
 
 %h2 Histórico
 = render 'lead_entries/form'
+
 .lead_entries#load-appendable{ :data => {:loading => {:lead_id => @lead.id}.to_json } }
   = render 'lead_entries/list'
 

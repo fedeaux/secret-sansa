@@ -17,7 +17,9 @@
 //= require jquery.form
 //= require infinite_loading
 //= require turbolinks
+//= require lead_manager
 //= require jquery.validationEngine
 //= require jquery.validationEngine-pt_BR
 //= require best_in_place
+
 //= require_tree .
