@@ -16,6 +16,9 @@
   %b Disabled:
   = @lead.disabled
 
-= link_to 'Edit', edit_lead_path(@lead)
-\|
-= link_to 'Back', leads_path
+%h2 Histórico
+= render 'lead_entries/form'
+.lead_entries#load-appendable{ :data => {:loading => {:lead_id => @lead.id}.to_json } }
+  = render 'lead_entries/list'
+
+= render 'common/loading_more', url: lead_entries_path(format: :json)

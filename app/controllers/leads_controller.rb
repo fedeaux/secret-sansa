@@ -10,6 +10,7 @@ class LeadsController < ApplicationController
   # GET /leads/1
   # GET /leads/1.json
   def show
+    @lead_entry = LeadEntry.new
   end
 
   # GET /leads/new

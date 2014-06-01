@@ -1,11 +1,6 @@
 %h1 Todos os Clientes
 
-%table.entity-list
-  - @clients.each do |client|
-    %tr
-      %td= client.title
-      %td= link_to client.name, client_path(client.id)
-      %td
-        .email= client.email
+%table#load-appendable.entity-list
+  = render 'index_part'
 
-= render 'common/pagination', :elements => @clients
+= render 'common/loading_more', url: clients_path(format: :json)

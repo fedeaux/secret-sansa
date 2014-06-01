@@ -10,7 +10,7 @@
 %p
   = best_in_place @local, :city, :type => :input
   ,
-  = best_in_place @local, :state, :type => :select
+  = best_in_place @local, :state, :type => :select, :collection => best_in_place_state_shortnames
   \ -
   = best_in_place @local, :cep, :type => :input
 

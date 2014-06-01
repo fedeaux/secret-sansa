@@ -5,6 +5,15 @@ class LocalsController < ApplicationController
   # GET /locals.json
   def index
     @locals = Local.paginate(:page => params[:page])
+
+    respond_to do |format|
+      format.html { render action: 'index' }
+      format.json { render :json => {
+          :amount => @locals.length,
+          :success => true,
+          :html => (render_to_string partial: 'index_part.html.haml')}
+      }
+    end
   end
 
   # GET /locals/1

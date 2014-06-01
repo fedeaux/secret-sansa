@@ -1,16 +1,6 @@
 %h1 Todos os Locais
 
-%table.entity-list
-  - @locals.each do |local|
-    %tr
-      %td= link_to local.name, local_path(local.id)
-      %td= local.address
+%table#load-appendable.entity-list
+  = render 'index_part'
 
-      %td
-        = best_in_place local, :city, :type => :input
-        ,
-        = best_in_place local, :state, :type => :select
-
-      %td= best_in_place local, :company_name, :type => :input
-
-= render 'common/pagination', :elements => @locals
+= render 'common/loading_more', url: locals_path(format: :json)

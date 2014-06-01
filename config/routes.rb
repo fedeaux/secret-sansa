@@ -1,4 +1,6 @@
 Interno::Application.routes.draw do
+  resources :lead_entries
+
   resources :users
   resources :clients
   resources :leads

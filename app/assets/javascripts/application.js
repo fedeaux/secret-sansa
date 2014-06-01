@@ -14,6 +14,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.purr
+//= require jquery.form
+//= require infinite_loading
 //= require turbolinks
 //= require jquery.validationEngine
 //= require jquery.validationEngine-pt_BR

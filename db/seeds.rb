@@ -7,10 +7,28 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 if true
+  LeadEntry.delete_all
+  entries = JSON.parse IO.read 'files/sync/lead_entries.csv'
+  entries.each { |entry|
+    begin
+      LeadEntry.create(:id => entry['id'],
+                  :lead_id => entry['historico'],
+                  :text => entry['texto'],
+                  :relation => entry['rel'],
+                  :created_at => entry['escrito_em'],
+                  :date => entry['data'])
+
+    rescue Exception => e
+      puts e.message
+      puts e.backtrace.inspect
+    end
+  }
+end
+
+if false
   Lead.delete_all
   leads = JSON.parse IO.read 'files/sync/leads.csv'
   leads.each { |lead|
-    puts lead['assunto']
     begin
       Lead.create(:id => lead['id'],
                   :subject => lead['assunto'],

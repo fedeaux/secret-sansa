@@ -5,6 +5,15 @@ class ClientsController < ApplicationController
   # GET /clients.json
   def index
     @clients = Client.paginate(:page => params[:page])
+
+    respond_to do |format|
+      format.html { render action: 'index' }
+      format.json { render :json => {
+          :amount => @clients.length,
+          :success => true,
+          :html => (render_to_string partial: 'index_part.html.haml')}
+      }
+    end
   end
 
   # GET /clients/1
