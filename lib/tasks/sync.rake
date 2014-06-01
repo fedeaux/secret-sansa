@@ -35,4 +35,18 @@ namespace :sync do
     File.open('files/sync/parent_mapping.csv', 'w') { |file| file.write JSON.dump parent_mapping }
   end
 
+  desc "Create files/sync/leads.csv with local data"
+  task leads: :environment do
+    db = Mysql2::Client.new(:host => '187.45.196.176',
+                            :username => 'instrutec2',
+                            :password => 'gh6po93',
+                            :database => 'instrutec2')
+    data = []
+
+    db.query("SELECT * FROM historico").each { |row|
+      data << row
+    }
+
+    File.open('files/sync/leads.csv', 'w') { |file| file.write JSON.dump data }
+  end
 end

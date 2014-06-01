@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140529134655) do
+ActiveRecord::Schema.define(version: 20140601135527) do
 
   create_table "clients", force: true do |t|
     t.string   "name"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 20140529134655) do
     t.boolean  "disabled"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_service"
+    t.text     "observations"
   end
 
   create_table "locals", force: true do |t|
