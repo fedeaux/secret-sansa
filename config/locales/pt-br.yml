@@ -49,6 +49,12 @@ pt-br:
         company_name: Razão Social
         observations: Observações
 
+      lead:
+        subject: Assunto
+        last_event_on: Último evento em
+        observations: Observações
+        disabled: Disabilitado
+
   activerecord:
     errors:
       models:

@@ -1,28 +1,23 @@
 = form_for @lead do |f|
   - if @lead.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@lead.errors.count, "error")} prohibited this lead from being saved:"
+      %h2= "#{pluralize(@lead.errors.count, "error")} erros::"
       %ul
         - @lead.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :subject
-    = f.text_field :subject
-  .field
-    = f.label :last_event_on
-    = f.datetime_select :last_event_on
-  .field
-    = f.label :status
-    = f.number_field :status
-  .field
-    = f.label :has_pendencies
-    = f.check_box :has_pendencies
-  .field
-    = f.label :has_file_pendencies
-    = f.check_box :has_file_pendencies
-  .field
-    = f.label :disabled
-    = f.check_box :disabled
-  .actions
-    = f.submit 'Save'
+  %table
+    %tr.field
+      %td= f.label :subject
+      %td= f.text_field :subject, :class => "validate[required]"
+
+    %tr.field
+      %td= f.label :is_service
+      %td= f.check_box :is_service
+
+    %tr.field
+      %td= f.label :observations
+      %td= f.text_area :observations
+
+    %tr
+      %td.actions{:colspan => 2}= f.submit 'Iniciar Histórico'

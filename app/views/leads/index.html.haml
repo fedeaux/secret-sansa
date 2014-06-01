@@ -3,7 +3,7 @@
 %table.entity-list
   - @leads.each do |lead|
     %tr
-      %td= lead.subject
+      %td= link_to lead.subject, lead_path(lead.id)
       %td= lead.status
       %td= human_datetime lead.last_event_on
       %td= human_datetime lead.created_at

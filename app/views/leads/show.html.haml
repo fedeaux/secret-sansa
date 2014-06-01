@@ -1,11 +1,8 @@
-%p#notice= notice
+.actions Desabilitar
 
-%p
-  %b Subject:
-  = @lead.subject
-%p
-  %b Last event on:
-  = @lead.last_event_on
+%h1.entity-view= best_in_place @lead, :subject, :type => :input
+%p.explain= 'Criado em '+human_datetime(@lead.created_at)+', último evento em '+human_datetime(@lead.last_event_on)
+
 %p
   %b Status:
   = @lead.status
