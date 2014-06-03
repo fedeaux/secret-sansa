@@ -1,0 +1,3 @@
+- @lead_entries = @lead.lead_entries if @lead_entries.nil?
+- @lead_entries.each do |lead_entry|
+  = render '/lead_entries/list_item.html.haml', :lead_entry => lead_entry

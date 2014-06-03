@@ -1,0 +1,5 @@
+- lead_entry = @lead_entry if lead_entry.nil?
+
+.lead_entry-list-item
+  .lead_entry-list-item-header= "Em "+human_datetime(lead_entry.created_at)+" Pedro registrou um evento de "+human_date(lead_entry.date)
+  %pre.lead_entry-list-item-text= lead_entry.text

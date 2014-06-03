@@ -1,0 +1,6 @@
+- @clients.each do |client|
+  %tr
+    %td= client.title
+    %td= link_to client.name, client_path(client.id)
+    %td
+      .email= client.email

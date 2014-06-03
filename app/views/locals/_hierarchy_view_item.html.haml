@@ -1,0 +1,11 @@
+%ul.hierarchy_view_item.hierarchy_view_node_item{"data-local-view-tree-level" => level}
+  %li{:class => ['local_name', 'hierarchy_view_anchor', ('hierarchy_view_no_children' if local.children.length == 0)],
+      :data => {'preview-url' => local_path(local.id, :format => 'json') }  }
+    %span= local.name
+    %span.actions
+      = link_to raw("&nbsp;"), new_client_path(local.id), :class => 'icon icon-client', :title => 'Adicionar Cliente'
+      = link_to raw("&nbsp;"), new_local_path(local.id), :class => 'icon icon-add', :title => 'Adicionar Local Abaixo'
+      = link_to raw("&nbsp;"), local_path(local.id), :class => 'icon icon-view', :title => 'Visualizar Local'
+
+  - local.children.each do |child_local|
+    = render 'hierarchy_view_item', :local => child_local, :level => level + 1

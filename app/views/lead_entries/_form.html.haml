@@ -1,0 +1,10 @@
+= form_for @lead_entry, url: lead_entries_path(@lead_entry, format: :json) do |f|
+  .lead-entry-form
+    = f.hidden_field :lead_id, :value => @lead.id
+
+    .lead-entry-field
+      = f.text_area :text
+
+    .lead-entry-date-and-register
+      = f.date_select :date
+      = f.submit 'Registrar'

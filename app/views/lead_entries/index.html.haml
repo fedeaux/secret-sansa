@@ -1,0 +1,23 @@
+%h1 Listing lead_entries
+
+%table
+  %tr
+    %th Text
+    %th Date
+    %th Relation
+    %th
+    %th
+    %th
+
+  - @lead_entries.each do |lead_entry|
+    %tr
+      %td= lead_entry.text
+      %td= lead_entry.date
+      %td= lead_entry.relation
+      %td= link_to 'Show', lead_entry
+      %td= link_to 'Edit', edit_lead_entry_path(lead_entry)
+      %td= link_to 'Destroy', lead_entry, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Lead entry', new_lead_entry_path

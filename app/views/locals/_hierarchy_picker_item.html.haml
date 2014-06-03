@@ -1,0 +1,9 @@
+%ul.hierarchy_picker_item.hierarchy_picker_node_item{"data-local-picker-tree-level" => level}
+  %li.local_name= local.name
+
+  - local.children.each do |child_local|
+    - if child_local.children.length > 0
+      = render 'hierarchy_picker_node_item', :local => child_local, :level => level + 1
+
+    - else
+      = render 'hierarchy_picker_leaf_item', :local => child_local, :level => level + 1
