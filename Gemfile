@@ -8,10 +8,10 @@ gem 'neat'
 gem 'haml-rails'
 
 gem 'devise'
+gem 'mysql2'
 
 # Use mysql as the database for Active Record
 group :development do
-  gem 'mysql2'
   gem 'better_errors'
   gem 'binding_of_caller', '~> 0.7.2'
 end
