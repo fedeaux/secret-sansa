@@ -4,17 +4,17 @@
 %h1.entity-view
   = best_in_place @local, :name, :type => :input
 
-%p= best_in_place @local, :category, :type => :input
-%p= best_in_place @local, :address, :type => :input
+%p= best_in_place @local, :category, :type => :input, :nil => "sem categoria"
+%p= best_in_place @local, :address, :type => :input, :nil => "sem endereço"
 
 %p
-  = best_in_place @local, :city, :type => :input
-  ,
+  = best_in_place @local, :city, :type => :input, :nil => "sem cidade"
+  \,
   = best_in_place @local, :state, :type => :select, :collection => best_in_place_state_shortnames
   \ -
-  = best_in_place @local, :cep, :type => :input
+  = best_in_place @local, :cep, :type => :input, :nil => "sem cep"
 
 %p
-  = best_in_place @local, :company_name, :type => :input
+  = best_in_place @local, :company_name, :type => :input, :nil => "sem razão social"
   ,
-  = best_in_place @local, :cnpj, :type => :input
+  = best_in_place @local, :cnpj, :type => :input, :nil => "sem cnpj"

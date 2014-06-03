@@ -19,6 +19,12 @@ class LocalsController < ApplicationController
   # GET /locals/1
   # GET /locals/1.json
   def show
+    respond_to do |format|
+      format.html { render action: 'show' }
+      format.json { render :json => {
+          :html => (render_to_string 'locals/show.html.haml', :layout => false )}
+      }
+    end
   end
 
   # GET /locals/new
@@ -67,6 +73,27 @@ class LocalsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to locals_url }
       format.json { head :no_content }
+    end
+  end
+
+  def hierarchy_picker
+    if params[:root_local_id].nil?
+      @root_locals = Local.roots
+    else
+      @root_locals = [Local.find(params[:root_local_id])]
+    end
+
+    respond_to do |format|
+      format.json { render json: { :html => render_to_string("locals/hierarchy_picker.html.haml", :layout => false) } }
+      format.html {}
+    end
+  end
+
+  def hierarchy_view
+    if params[:root_local_id].nil?
+      @root_locals = Local.roots
+    else
+      @root_locals = [Local.find(params[:root_local_id])]
     end
   end
 

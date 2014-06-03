@@ -28,7 +28,6 @@ pt-br:
     observation: Observação
     has_pendencies: "Tem pendências"
     has_file_pendencies: "Tem pendências de arquivos"
-
   clients:
 
   helpers:
@@ -59,6 +58,11 @@ pt-br:
     errors:
       models:
         client:
+          attributes:
+            name:
+              blank: "Este campo não pode ser vazio"
+
+        local:
           attributes:
             name:
               blank: "Este campo não pode ser vazio"

@@ -15,11 +15,14 @@
 //= require jquery_ujs
 //= require jquery.purr
 //= require jquery.form
-//= require infinite_loading
 //= require turbolinks
 //= require lead_manager
 //= require jquery.validationEngine
 //= require jquery.validationEngine-pt_BR
 //= require best_in_place
+
+//= require util
+//= require infinite_loading
+//= require hierarchy_view
 
 //= require_tree .
