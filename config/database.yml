@@ -32,8 +32,8 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: Interno_production
+  database: instrutecnica
   pool: 5
-  username: root
-  password:
+  username: adminT3LTec2
+  password: pgQrpi9Bwcti
   socket: /tmp/mysql.sock

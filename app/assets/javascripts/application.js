@@ -24,5 +24,6 @@
 //= require util
 //= require infinite_loading
 //= require hierarchy_view
+//= require best_in_place_wrapper
 
 //= require_tree .

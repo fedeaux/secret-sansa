@@ -2,21 +2,8 @@ $ () ->
   $("form").validationEngine()
   $("#messages").fadeOut 2400
 
-  bip = $ '.best_in_place'
-  bip.best_in_place()
-
-  set_bip_placeholder = (e) ->
-    if e.data('nil') == e.text()
-      e.addClass 'best_in_place_empty'
-    else
-      e.removeClass 'best_in_place_empty'
-
-  bip.each (i, _e) ->
-    e = $ _e
-    set_bip_placeholder e
-    e.on 'ajax:complete', set_bip_placeholder
-
   loading_more = $ '#loading-more'
+  BestInPlace.install()
 
   if loading_more.length > 0
     new InfiniteLoading loading_more
@@ -32,3 +19,4 @@ $ () ->
       url = t.attr 'data-preview-url'
       $.get url, (data) ->
         $('#local_preview').html data.html
+        BestInPlace.install '#local_preview .best_in_place'
