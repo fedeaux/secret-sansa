@@ -1,0 +1,7 @@
+#local_hierarchy_view.hierarchy_view
+  .hierarchy_picker_header
+    %h1 Selecionar Local
+    %span.hierarchy_picker_close X
+    .clear
+  - @root_locals.each do |root_local|
+    = render 'hierarchy_picker_item', :local => root_local, :level => 0

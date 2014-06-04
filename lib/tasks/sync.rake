@@ -8,13 +8,13 @@ namespace :sync do
                             :password => 'gh6po93',
                             :database => 'instrutec2')
 
-    File.open('files/sync/clients.csv', 'w') { |file|
-      db.query("SELECT * FROM clientes").each { |row|
-        file.write row.select { |key| ['tratamento', 'nome', 'email', 'observacoes'].include? key }.values.map { |value|
-          URI::escape value
-        }.join('|')+"\n"
-      }
+    data = []
+
+    db.query("SELECT * FROM clientes").each { |row|
+      data << row
     }
+
+    File.open('files/sync/clients.csv', 'w') { |file| file.write JSON.dump data }
   end
 
   desc "Create files/sync/locals.csv with local data"

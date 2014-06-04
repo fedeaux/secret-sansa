@@ -2,6 +2,42 @@
 // They will automatically be included in application.css.
 // You can use Sass here: http://sass-lang.com/
 
+#hierarchy_picker_wrapper
+  +overlay
+
+  .locals_tree
+    height: 80%
+    margin-top: 10%
+    overflow-y: scroll
+
+  .hierarchy_view
+    min-height: 100%
+    width: 80%
+    margin-left: 10%
+    background-color: white
+    padding: 1em
+
+  .picker_item_select
+    float: right
+    margin-right: 1em
+
+  .hierarchy_picker_header
+    margin-bottom: 1em
+
+    h1
+      float: left
+
+  .hierarchy_picker_close
+    +outset
+    +border-radius(1em)
+    display: inline-block
+    height: 2em
+    width: 2em
+    line-height: 2em
+    text-align: center
+    vertical-align: middle
+    float: right
+
 .hierarchy_view
   ul ul
     display: none

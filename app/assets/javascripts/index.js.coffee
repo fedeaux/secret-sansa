@@ -20,3 +20,18 @@ $ () ->
       $.get url, (data) ->
         $('#local_preview').html data.html
         BestInPlace.install '#local_preview .best_in_place'
+
+  hp = $ '.hierarchy_picker'
+  if hp.length > 0
+    hp.each (i, _e) ->
+      e = $ _e
+      if e.is 'input'
+        new HierarchyPickerInput
+          input: e
+          anchor: $ 'body'
+          placeholder: 'selecione...'
+
+      else
+        new HierarchyPickerInPlaceEdit
+          field: e
+          anchor: $ 'body'

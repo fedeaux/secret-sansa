@@ -53,6 +53,10 @@ class ClientsController < ApplicationController
       if @client.update(client_params)
         format.html { redirect_to @client, notice: 'Client was successfully updated.' }
         format.json { head :no_content }
+
+        # format.json { render :json => {
+        #   :html => (render_to_string 'clients/show.html.haml', :layout => false )}
+
       else
         format.html { render action: 'edit' }
         format.json { render json: @client.errors, status: :unprocessable_entity }
@@ -78,6 +82,6 @@ class ClientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def client_params
-      params.require(:client).permit(:name, :email, :title, :observations)
+      params.require(:client).permit(:name, :email, :local_id, :title, :observations)
     end
 end

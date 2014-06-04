@@ -24,6 +24,9 @@
 //= require util
 //= require infinite_loading
 //= require hierarchy_view
+//= require hierarchy_picker
+//= require hierarchy_picker_input
+//= require hierarchy_picker_in_place_edit
 //= require best_in_place_wrapper
 
 //= require_tree .

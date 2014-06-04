@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-if true
+if false
   LeadEntry.delete_all
   entries = JSON.parse IO.read 'files/sync/lead_entries.csv'
   entries.each { |entry|
@@ -81,12 +81,22 @@ if false
   }
 end
 
-if false
+if true
   Client.delete_all
-  File.open("files/sync/clients.csv", "r") do |file_handle|
-    file_handle.each_line do |client|
-      c = client.split('|').map { |w| URI::decode(w) }
-      Client.create(:title => c[0], :name => c[1], :email => c[2], :observations => c[3])
+
+  clients = JSON.parse IO.read 'files/sync/clients.csv'
+
+  clients.each { |client|
+    begin
+      c = Client.create(:id => client['id'],
+                        :name => client['nome'],
+                        :observations => client['observacoes'],
+                        :title => client['tratamento'],
+                        :email => client['email'],
+                        :local_id => client['local']
+                        )
+    rescue
+      puts 'sei la'+client['id'].to_s
     end
-  end
+  }
 end

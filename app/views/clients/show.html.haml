@@ -9,5 +9,7 @@
 
 %p.email= best_in_place @client, :email, :type => :input
 
+= render '/locals/editable_line', :push_url => client_path(@client.id, :format => 'json'), :local => @client.local, :id => 'client-'+@client.id.to_s+'-local-edit'
+
 %h3 Observações
-.observations= best_in_place @client, :observations, :type => :textarea
+%pre.observations= best_in_place @client, :observations, :type => :textarea

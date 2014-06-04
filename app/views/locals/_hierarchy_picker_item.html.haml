@@ -1,9 +1,7 @@
 %ul.hierarchy_picker_item.hierarchy_picker_node_item{"data-local-picker-tree-level" => level}
-  %li.local_name= local.name
+  %li{:class => ['local_name', 'hierarchy_view_anchor', ('hierarchy_view_no_children' if local.children.length == 0)]}
+    %span.picker_display= local.name
+    %span.picker_item_select{:data => {:value => local.id}} (Selecionar)
 
   - local.children.each do |child_local|
-    - if child_local.children.length > 0
-      = render 'hierarchy_picker_node_item', :local => child_local, :level => level + 1
-
-    - else
-      = render 'hierarchy_picker_leaf_item', :local => child_local, :level => level + 1
+    = render 'hierarchy_picker_item', :local => child_local, :level => level + 1

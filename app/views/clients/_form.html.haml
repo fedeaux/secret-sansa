@@ -20,6 +20,10 @@
       %td= f.text_field :title
 
     %tr.field
+      %td= f.label :local_id
+      %td= f.text_field :local_id, :class => "hierarchy_picker", :data => { 'hierarchy-picker-url' => local_hierarchy_picker_path(:format => 'json') }
+
+    %tr.field
       %td= f.label :observations
       %td= f.text_area :observations
 

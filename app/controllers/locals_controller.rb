@@ -78,7 +78,7 @@ class LocalsController < ApplicationController
 
   def hierarchy_picker
     if params[:root_local_id].nil?
-      @root_locals = Local.roots
+      @root_locals = [Local.find(1245)] #Local.roots
     else
       @root_locals = [Local.find(params[:root_local_id])]
     end
